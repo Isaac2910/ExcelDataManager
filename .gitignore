@@ -1,0 +1,22 @@
+# Environnement virtuel
+VENV/
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Configurations d'éditeur
+.vscode/
+.idea/
+
+# Fichiers de logs ou temporaires
+*.log
+*.pot
+*.pyc
+
+# Django-specific
+db.sqlite3
+staticfiles/
+media/
+.env
