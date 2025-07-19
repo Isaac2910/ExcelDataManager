@@ -1,6 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from .models import Employee
 
+# Validation pour le fichier Excel
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 Mo
 
 def validate_excel_file(file):
@@ -20,3 +22,9 @@ class UploadFileForm(forms.Form):
         validators=[validate_excel_file],
         widget=forms.FileInput(attrs={'accept': '.xlsx'})
     )
+
+
+class EmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = ['nom', 'email', 'salaire']

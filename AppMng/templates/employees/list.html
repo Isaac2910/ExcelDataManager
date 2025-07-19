@@ -20,6 +20,9 @@
         <td>{{ emp.nom }}</td>
         <td>{{ emp.email }}</td>
         <td>{{ emp.salaire }}</td>
+        <td>
+           <a href="{% url 'employee_edit' emp.id %}" class="btn-secondary">✏️ Modifier</a>
+        </td>
       </tr>
       {% empty %}
       <tr>
