@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-section">
+  <div class="hero-content">
+    <h1>Bienvenue sur <span class="app-name">GesPro</span></h1>
+    <p class="hero-description">
+      Une plateforme simple, rapide et moderne pour gérer vos données en toute efficacité.
+    </p>
+    <div class="hero-actions">
+      <a href="{% url 'employee_list' %}" class="btn-primary">👥 Voir les employés </a>
+      <a href="{% url 'import_file' %}" class="btn-secondary">📥 Importer des données</a>
+    </div>
+  </div>
+</div>
+
+<div class="features-section">
+  <h2 class="features-title">Fonctions principales</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3> Statistiques</h3>
+      <p>Analyse rapide des performances et des données.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📁 Import/Export</h3>
+      <p>Gérez vos fichiers Excel facilement.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🔒 Sécurité</h3>
+      <p>Accès protégé et sécurisé  </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

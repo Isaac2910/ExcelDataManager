@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Dashboard{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script defer>
+    // Simple burger toggle
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('open');
+    }
+  </script>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo"> GestionPro</div>
+      <nav class="sidebar-nav">
+        <a href="{% url 'home' %}">🏠 Accueil</a>
+        <a href="{% url 'employee_list' %}">👥 Employés</a>
+        <a href="{% url 'import_file' %}"> Import</a>
+        <a href="{% url 'export_file' %}">📤 Export</a>
+      </nav>
+    </aside>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+      
+       
+       
+
+      <!-- Contenu -->
+      <section class="content">
+         <button class="burger" onclick="toggleSidebar()">☰</button>
+        {% block content %}{% endblock %}
+      </section>
+    </div>
+  </div>
+</body>
+</html>
+

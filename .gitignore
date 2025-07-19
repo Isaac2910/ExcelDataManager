@@ -4,7 +4,7 @@ VENV/
 # Fichiers Python
 __pycache__/
 *.py[cod]
-*.sqlite3
+
 
 # Configurations d'éditeur
 .vscode/
@@ -16,7 +16,7 @@ __pycache__/
 *.pyc
 
 # Django-specific
-db.sqlite3
+
 staticfiles/
 media/
 .env

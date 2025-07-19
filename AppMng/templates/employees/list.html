@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2 class="page-title">Liste des employés</h2>
+
+<div class="table-container">
+  <table class="employee-table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Salaire</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for emp in page_obj %}
+      <tr>
+        <td>{{ emp.nom }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.salaire }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3">Aucun employé trouvé.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">← Précédent</a>
+  {% endif %}
+
+  {% for num in page_obj.paginator.page_range %}
+    {% if num == page_obj.number %}
+      <span class="current-page">{{ num }}</span>
+    {% elif num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+      <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="page-link">Suivant →</a>
+  {% endif %}
+</div>
+
+<div class="actions">
+  <a href="{% url 'export_file' %}" class="btn-action">Telecharger</a>
+  <a href="{% url 'import_file' %}" class="btn-action">Importer</a>
+</div>
+
+{% endblock %}

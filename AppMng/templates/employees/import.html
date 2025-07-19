@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="import-container">
+  <h2 class="import-title">Importer un fichier Excel</h2>
+
+  <form method="post" enctype="multipart/form-data" class="import-form">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.file.label_tag }}
+      {{ form.file }}
+    </div>
+    <button type="submit" class="btn-submit">Importer</button>
+  </form>
+
+  {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+  {% endif %}
+</div>
+
+{% endblock %}
