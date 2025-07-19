@@ -30,11 +30,12 @@ def employee_list(request):
     paginator = Paginator(employees, 10) #par 10 emp....
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    total_employes = employees.count()  # Total 
 
     if request.htmx:
         return render(request, 'employees/partials/employee_table.html', {'page_obj': page_obj})
 
-    return render(request, 'employees/list.html', {'page_obj': page_obj})
+    return render(request, 'employees/list.html', {'page_obj': page_obj, 'total_employes': total_employes})
 
 
 #Update ou création d'un employé
