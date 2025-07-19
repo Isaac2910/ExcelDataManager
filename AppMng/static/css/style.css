@@ -418,14 +418,6 @@ body, html {
     margin-left: 0;
   }
 }
-@media (max-width: 480px) {
-
-  .page-link, .current-page {
-    padding: 0.5rem 1rem;
-    width: 100%;
-    text-align: center;
-  }
-}
 @media (max-width: 600px) {
   .employee-table th,
   .employee-table td {
